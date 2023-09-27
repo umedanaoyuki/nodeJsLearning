@@ -4,7 +4,7 @@ import * as http from "http";
 const server = http.createServer(function(req, res) {
     console.log(req.url);
     if (req.url === '/hello') {
-        res.end('hello')
+        res.end('<script>console.log("frontEnd")</script>')
     } else if (req.url === '/bye') {
         res.end('bye');
     }
