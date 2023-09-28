@@ -24,7 +24,8 @@ const server = http.createServer(function(req, res) {
                 data += chunk;
             });
             req.on("end", function() {
-                console.log(data);
+                const params = new URLSearchParams(data);
+                console.log(params);
             })
         }
         res.end(req.url);
