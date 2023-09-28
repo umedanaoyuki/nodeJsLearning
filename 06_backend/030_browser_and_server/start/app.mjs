@@ -18,9 +18,17 @@ const server = http.createServer(function(req, res) {
             const params = new URLSearchParams(queryString);
             console.log("ぱらむすs");
             console.log(params);    
+        } else if (req.method === "POST") {
+            let data = "";
+            req.on("data", function (chunk) {
+                data += chunk;
+            });
+            req.on("end", function() {
+                console.log(data);
+            })
         }
         res.end(req.url);
-    }
-    });
+    } 
+});
 
 server.listen(8080);
