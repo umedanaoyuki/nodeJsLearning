@@ -3,6 +3,7 @@ import express from 'express';
 const PORT = 8080;
 const app = express();
 
+
 app.get('/', function (req, res) {
   res.send(`
     <h1>練習問題</h1>
@@ -17,5 +18,9 @@ app.get('/', function (req, res) {
     <input type="submit">
     </form>
     `);
+});
+
+app.listen(PORT, function() {
+  console.log("サーバースタート");
 });
 
