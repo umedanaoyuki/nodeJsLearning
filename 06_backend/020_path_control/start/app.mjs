@@ -18,7 +18,7 @@ const server = http.createServer(function(req, res) {
     } else if (req.url === '/bye') {
         res.end('bye');
     } else {
-        res.end('/redirected');
+        res.end(req.url);
     }
 });
 
