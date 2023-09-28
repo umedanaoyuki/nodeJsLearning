@@ -15,6 +15,12 @@ app.get("/", function(req,res) {
         `)
 })
 
+app.get('/result', function(req, res) {
+    const params = req.query;
+    console.log(params);
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server Start: http://localhost:${PORT}`)
 })
