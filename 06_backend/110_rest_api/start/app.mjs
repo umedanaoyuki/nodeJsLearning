@@ -15,6 +15,10 @@ app.get('/products', function (req, res) {
   res.json(products);
 });
 
+app.get('/products/:id', function (req,res) {
+  res.json(products[req.params.id]);
+});
+
 app.post('/products', function (req, res) {
   const newProduct = req.body;
   products.push(newProduct);
