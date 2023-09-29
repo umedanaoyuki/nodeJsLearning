@@ -15,32 +15,31 @@ app.get('/products', function (req, res) {
   res.json(products);
 });
 
-app.post('/create-product', function (req, res) {
+app.post('/products', function (req, res) {
   const newProduct = req.body;
   products.push(newProduct);
   console.log(products);
   res.json(newProduct);
 });
 
-app.post('/delete-product', function (req, res) {
-  const deleteId = req.body.id;
+app.delete('/products/:id', function (req, res) {
+  const deleteId = req.params.id;
   products.splice(deleteId,1);
   console.log(products);
   //削除されたIDをレスポンスで返す
   res.json({deleteId});
 });
 
-app.post('/update-product', function (req, res) {
+app.patch('/products/:id', function (req, res) {
   console.log('test');
-  const targetProduct = products[req.body.id];
-
+  const targetProduct = products[req.params.id];
   if(req.body.hasOwnProperty('name')) {
     targetProduct.name = req.body.name;
   }
   if(req.body.hasOwnProperty('price')) {
     targetProduct.price = req.body.price;
   }
-  // console.log(products);
+  console.log(products);
   res.json(targetProduct);
 });
 
