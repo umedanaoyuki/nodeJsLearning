@@ -30,6 +30,20 @@ app.post('/delete-product', function (req, res) {
   res.json({deleteId});
 });
 
+app.post('/update-product', function (req, res) {
+  console.log('test');
+  const targetProduct = products[req.body.id];
+
+  if(req.body.hasOwnProperty('name')) {
+    targetProduct.name = req.body.name;
+  }
+  if(req.body.hasOwnProperty('price')) {
+    targetProduct.price = req.body.price;
+  }
+  // console.log(products);
+  res.json(targetProduct);
+});
+
 app.listen(PORT, function () {
   console.log(`Server start: http://localhost:${PORT}`);
 });
